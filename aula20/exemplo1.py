@@ -1,6 +1,6 @@
 # VARIÂNCIA, DESVIO PADRÃO e COEFICIENTE DE VARIAÇÃO (Medidas de Dispersão) 
 # Variância é a média dos quadrados das diferenças em relação à média.
-# Desvio padrão é a raiz quadrada da variância.
+# Desvio padrão é a raiz quadrada da variância. serve para medir a dispersão dos dados em relação à média. sendo assim, quanto maior o desvio padrão, maior a dispersão dos dados em relação à média.
 # Coeficiente de variação é o desvio padrão dividido pela média, expressando a variabilidade relativa.
 # medidas de dispersão são importantes para entender a variabilidade dos dados.
 
@@ -94,7 +94,15 @@ try:
     # Coeficiente de Variação: É a magnitude do desvio padrão
     coef_variacao = desvio_padrao / media_roubo_veiculo
 
+    # ASSIMETRIA # A simetria é uma medida que indica se a distribuição dos dados é simétrica ou assimétrica.
+    # Os dados são simétricos se a média, mediana e moda forem iguais. -0.5 < assimetria < 0.5 é simétrico
+    # Assimetria negativa: média < mediana < moda (cauda esquerda mais longa ou pesada que a direita)
+    # Assimetria positiva: média > mediana > moda (cauda direita mais longa ou pesada que a esquerda)
+    # Assimetria Moderada entre 0.5 e 1.0 ou -0.5 e -1.0
+    # Assimetria alta: maior que 1.0 ou menor que -1.0
+    # Assimetria negativa abaixo de -1.0 indica que a cauda esquerda é mais longa ou mais pesada que a direita.
 
+    assimetria = df_roubo_veiculo['roubo_veiculo'].skew()
 
 
 
@@ -116,7 +124,7 @@ try:
     print(f'IQR: {iqr}')
     print(f'Máximo: {maximo}')
     print(f'Limite Superior: {limite_superior}')
-    
+
     print('\nOUTRAS AS MEDIDAS: ')
     print(30*'-')
     print(f'Amplitude Total: {amplitude_total}')
@@ -133,6 +141,7 @@ try:
 
     print('\nMedidas de Distribuição: ')
     print(30*'-')
+    print(f'Assimetria: {assimetria}')
 
 
     # #### OUTLIERS
@@ -238,7 +247,7 @@ try:
     plt.tight_layout()
     # Mostra o painel
     plt.show()
-
+    
 except Exception as e:
     print(f'Erro ao plotar {e}')
     exit()
