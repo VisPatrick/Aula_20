@@ -232,7 +232,7 @@ try:
     plt.subplot(2, 2, 3)
     plt.title('Concentração das Distribuições')
     # Histograma
-
+    plt.hist(array_roubo_veiculo, bins=77, edgecolor='violet')
 
     
     # POSIÇÃO 04
