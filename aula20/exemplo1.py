@@ -94,16 +94,28 @@ try:
     # Coeficiente de Variação: É a magnitude do desvio padrão
     coef_variacao = desvio_padrao / media_roubo_veiculo
 
-    # ASSIMETRIA # A simetria é uma medida que indica se a distribuição dos dados é simétrica ou assimétrica.
+    # ASSIMETRIA: 
+    # A simetria é uma medida que indica se a distribuição dos dados é simétrica ou assimétrica.
     # Os dados são simétricos se a média, mediana e moda forem iguais. -0.5 < assimetria < 0.5 é simétrico
-    # Assimetria negativa: média < mediana < moda (cauda esquerda mais longa ou pesada que a direita)
-    # Assimetria positiva: média > mediana > moda (cauda direita mais longa ou pesada que a esquerda)
+    # Assimetria negativa: média < mediana < moda (consentrada na parte maior da distribuição, cauda esquerda mais longa ou pesada que a direita)
+    # Assimetria positiva: média > mediana > moda (consentrado na parte menor da distribuição, cauda direita mais longa ou pesada que a esquerda)
     # Assimetria Moderada entre 0.5 e 1.0 ou -0.5 e -1.0
     # Assimetria alta: maior que 1.0 ou menor que -1.0
     # Assimetria negativa abaixo de -1.0 indica que a cauda esquerda é mais longa ou mais pesada que a direita.
 
-    assimetria = df_roubo_veiculo['roubo_veiculo'].skew()
+    # CURTOSE:
+    # A curtose é uma medida que indica a "altura" e "pontiagudez" da distribuição dos dados. # A curtose mede a concentração dos dados em torno da média.
+    # Curtose baixa: distribuição com caudas mais leves e achatadas (menor que 3)
+    # Curtose baixa: distribuição com caudas mais leves e achatadas (menor que 3)
+    # Curtose alta: distribuição com caudas mais pesadas e pontiagudas (maior que 3)
+    # Curtose normal: distribuição com caudas normais (igual a 3)
+    # platicúrtica: distribuição com caudas mais leves e achatadas (menor que 3)
+    # leptocúrtica: distribuição com caudas mais pesadas e pontiagudas (maior que 3) tendência a ter outliers, ou seja, a distribuição é mais pontiaguda que a normal.
+    # mesocúrtica: distribuição com caudas normais (igual a 3) tendencia a não ter outliers, ou seja, a distribuição é normal.
+    # Abaixo de 3 diz que a distribuição é mais achatada que a normal, acima de 3 indica que a distribuição é mais pontiaguda que a normal.
 
+    assimetria = df_roubo_veiculo['roubo_veiculo'].skew()
+    curtose = df_roubo_veiculo['roubo_veiculo'].kurtosis()
 
 
     print('\nMunicípios com Menores números de Roubos: ')
@@ -142,6 +154,7 @@ try:
     print('\nMedidas de Distribuição: ')
     print(30*'-')
     print(f'Assimetria: {assimetria}')
+    print(f'Curtose: {curtose}')
 
 
     # #### OUTLIERS
