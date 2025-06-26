@@ -17,6 +17,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import seaborn as sns
 
 
 try:
@@ -106,7 +107,6 @@ try:
     # CURTOSE:
     # A curtose é uma medida que indica a "altura" e "pontiagudez" da distribuição dos dados. # A curtose mede a concentração dos dados em torno da média.
     # Curtose baixa: distribuição com caudas mais leves e achatadas (menor que 3)
-    # Curtose baixa: distribuição com caudas mais leves e achatadas (menor que 3)
     # Curtose alta: distribuição com caudas mais pesadas e pontiagudas (maior que 3)
     # Curtose normal: distribuição com caudas normais (igual a 3)
     # platicúrtica: distribuição com caudas mais leves e achatadas (menor que 3)
@@ -182,7 +182,12 @@ except Exception as e:
     print(f'Erro ao obter informações sobre padrão de roubo de veículos: {e}')
     exit()
 
+# PRINTANDO CURTOSE
+# try:
+#     sns.kdeplot(df_roubo_veiculo['roubo_veiculo'], bw_adjust=3)
 
+# except ImportError as e:
+#     ptint(f'Erro ao plotar: {e}')
 
 # PLOTANDO GRÁFICO
 # Matplotlib
